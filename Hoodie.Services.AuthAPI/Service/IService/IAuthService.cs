@@ -6,5 +6,6 @@ namespace Hoodie.Services.AuthAPI.Service.IService
     {
         Task<string> Register(RegistrationRequestDto registerationRequestDto);
         Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto);
+        Task<bool> AssignRole(string email, string roleName);
     }
 }
