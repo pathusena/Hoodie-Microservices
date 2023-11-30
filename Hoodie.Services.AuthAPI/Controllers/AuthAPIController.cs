@@ -30,9 +30,16 @@ namespace Hoodie.Services.AuthAPI.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
         {
-            return Ok();
+            var loginResponse = await _authService.Login(loginRequestDto);
+            if (loginResponse.User == null) { 
+                _responseDto.IsSuccess=false;
+                _responseDto.Message = "Username or password incorrect";
+                return BadRequest(_responseDto);
+            }
+            _responseDto.Ressult = loginResponse;
+            return Ok(_responseDto);
         }
     }
 }
