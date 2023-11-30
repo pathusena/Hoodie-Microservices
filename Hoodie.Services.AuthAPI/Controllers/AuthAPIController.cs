@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Hoodie.Services.AuthAPI.Dto;
+using Hoodie.Services.AuthAPI.Service.IService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hoodie.Services.AuthAPI.Controllers
@@ -7,9 +9,24 @@ namespace Hoodie.Services.AuthAPI.Controllers
     [ApiController]
     public class AuthAPIController : ControllerBase
     {
+        private readonly IAuthService _authService;
+        protected ResponseDto _responseDto;
+
+        public AuthAPIController(IAuthService authService)
+        {
+            _authService = authService;
+            _responseDto = new();
+        }
+
         [HttpPost("register")]
-        public async Task<IActionResult> Register() {
-            return Ok();
+        public async Task<IActionResult> Register([FromBody] RegistrationRequestDto registrationRequestDto) {
+            var errorMessage = await _authService.Register(registrationRequestDto);
+            if (errorMessage.Count() > 0) { 
+                _responseDto.IsSuccess = false;
+                _responseDto.Message = errorMessage;
+                return BadRequest(errorMessage);
+            }
+            return Ok(_responseDto);
         }
 
         [HttpPost("login")]
