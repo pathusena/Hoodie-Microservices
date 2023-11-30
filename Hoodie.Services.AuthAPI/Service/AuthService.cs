@@ -39,7 +39,7 @@ namespace Hoodie.Services.AuthAPI.Service
             var user = _appDbContext.ApplicationUsers.FirstOrDefault(u => u.UserName.ToLower() == loginRequestDto.UserName.ToLower());
             bool isValid = await _userManager.CheckPasswordAsync(user, loginRequestDto.Password);
 
-            if (user == null && !isValid) {
+            if (user == null || !isValid) {
                 return new LoginResponseDto
                 {
                     User = null,
