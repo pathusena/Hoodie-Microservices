@@ -38,7 +38,7 @@ namespace Hoodie.Services.AuthAPI.Controllers
                 _responseDto.Message = "Username or password incorrect";
                 return BadRequest(_responseDto);
             }
-            _responseDto.Ressult = loginResponse;
+            _responseDto.Result = loginResponse;
             return Ok(_responseDto);
         }
 
