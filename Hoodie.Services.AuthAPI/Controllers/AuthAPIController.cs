@@ -1,5 +1,6 @@
 ﻿using Hoodie.Services.AuthAPI.Dto;
 using Hoodie.Services.AuthAPI.Service.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,7 +25,7 @@ namespace Hoodie.Services.AuthAPI.Controllers
             if (errorMessage.Count() > 0) { 
                 _responseDto.IsSuccess = false;
                 _responseDto.Message = errorMessage;
-                return BadRequest(errorMessage);
+                return BadRequest(_responseDto);
             }
             return Ok(_responseDto);
         }

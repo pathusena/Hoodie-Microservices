@@ -20,7 +20,7 @@ namespace Hoodie.Web.Service
                 ApiType = StaticDetails.ApiTypeEnum.POST,
                 Data = registrationRequestDto,
                 Url = StaticDetails.AuthAPIBase + "/api/auth/AssignRole"
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
@@ -30,7 +30,7 @@ namespace Hoodie.Web.Service
                 ApiType = StaticDetails.ApiTypeEnum.POST,
                 Data = loginRequestDto,
                 Url = StaticDetails.AuthAPIBase + "/api/auth/login"
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDto?> RegistrationAsync(RegistrationRequestDto registrationRequestDto)
@@ -40,7 +40,7 @@ namespace Hoodie.Web.Service
                 ApiType = StaticDetails.ApiTypeEnum.POST,
                 Data = registrationRequestDto,
                 Url = StaticDetails.AuthAPIBase + "/api/auth/register"
-            });
+            }, withBearer: false);
         }
     }
 }

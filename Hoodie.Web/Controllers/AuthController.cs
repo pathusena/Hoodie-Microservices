@@ -64,15 +64,21 @@ namespace Hoodie.Web.Controllers
         public async Task<IActionResult> Register(RegistrationRequestDto registrationRequestDto)
         {
             ResponseDto responseDto = await _authService.RegistrationAsync(registrationRequestDto);
-            if (responseDto != null && responseDto.IsSuccess) {
-                if (string.IsNullOrEmpty(registrationRequestDto.RoleName)) {
+            if (responseDto != null && responseDto.IsSuccess)
+            {
+                if (string.IsNullOrEmpty(registrationRequestDto.RoleName))
+                {
                     registrationRequestDto.RoleName = StaticDetails.RoleCustomer;
                 }
                 ResponseDto assignRole = await _authService.AssignRoleAsync(registrationRequestDto);
-                if (assignRole != null && assignRole.IsSuccess) {
+                if (assignRole != null && assignRole.IsSuccess)
+                {
                     TempData["success"] = "Registration successful";
                     return RedirectToAction(nameof(Login));
                 }
+            }
+            else {
+                TempData["error"] = responseDto.Message;
             }
 
             var roles = new List<SelectListItem>
@@ -102,6 +108,7 @@ namespace Hoodie.Web.Controllers
             identity.AddClaim(new Claim(JwtRegisteredClaimNames.Name, jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name).Value));
 
             identity.AddClaim(new Claim(ClaimTypes.Name, jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email).Value));
+            identity.AddClaim(new Claim(ClaimTypes.Role, jwt.Claims.FirstOrDefault(u => u.Type == "role").Value));
 
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);

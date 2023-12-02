@@ -81,7 +81,7 @@ namespace Hoodie.Web.Controllers
                 TempData["error"] = response?.Message;
             }
 
-            return View(couponDto);
+            return RedirectToAction("CouponIndex");
         }
 
 		public async Task<IActionResult> CouponUpdate(int couponId)
