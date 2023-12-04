@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hoodie.Services.CouponAPI",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hoodie.Web", "Hoodie.Web\Hoodie.Web.csproj", "{6F359341-82BB-46B0-857F-6C50B384D35F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hoodie.Services.AuthAPI", "Hoodie.Services.AuthAPI\Hoodie.Services.AuthAPI.csproj", "{A58694FF-3313-4CE7-9FCA-1EF01F6828A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hoodie.Services.AuthAPI", "Hoodie.Services.AuthAPI\Hoodie.Services.AuthAPI.csproj", "{A58694FF-3313-4CE7-9FCA-1EF01F6828A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hoodie.Services.ProductAPI", "Hoodie.Services.ProductAPI\Hoodie.Services.ProductAPI.csproj", "{F6BA0BD2-FFC9-43FD-9BB4-1106AE6BA41E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{A58694FF-3313-4CE7-9FCA-1EF01F6828A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A58694FF-3313-4CE7-9FCA-1EF01F6828A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A58694FF-3313-4CE7-9FCA-1EF01F6828A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BA0BD2-FFC9-43FD-9BB4-1106AE6BA41E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BA0BD2-FFC9-43FD-9BB4-1106AE6BA41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BA0BD2-FFC9-43FD-9BB4-1106AE6BA41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BA0BD2-FFC9-43FD-9BB4-1106AE6BA41E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{97CCD6C4-5E0D-40A8-BE5F-5A50A3483D81} = {B3D8091B-4A8A-491A-B52B-83DA26EDE344}
 		{6F359341-82BB-46B0-857F-6C50B384D35F} = {2E4C1D3A-5222-4A8B-B260-419A9D72A2DB}
 		{A58694FF-3313-4CE7-9FCA-1EF01F6828A6} = {B3D8091B-4A8A-491A-B52B-83DA26EDE344}
+		{F6BA0BD2-FFC9-43FD-9BB4-1106AE6BA41E} = {B3D8091B-4A8A-491A-B52B-83DA26EDE344}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EABBFF78-68FF-4738-B29F-8A5DD1523606}
