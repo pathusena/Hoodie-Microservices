@@ -1,6 +1,4 @@
-﻿using Hoodie.Services.ProductAPI.Models.Dto;
-using Hoodie.Web.Models;
-using Hoodie.Web.Service;
+﻿using Hoodie.Web.Models;
 using Hoodie.Web.Service.IService;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -23,7 +21,7 @@ namespace Hoodie.Web.Controllers
 
             if (response != null && response.IsSuccess)
             {
-                list = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(response));
+                list = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(response.Result));
             }
             else {
                 TempData["error"] = response?.Message;

@@ -1,5 +1,4 @@
-﻿using Hoodie.Services.ProductAPI.Models.Dto;
-using Hoodie.Web.Models;
+﻿using Hoodie.Web.Models;
 
 namespace Hoodie.Web.Service.IService
 {

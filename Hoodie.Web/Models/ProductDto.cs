@@ -1,5 +1,5 @@
 ﻿
-namespace Hoodie.Services.ProductAPI.Models.Dto
+namespace Hoodie.Web.Models
 {
     public class ProductDto
     {

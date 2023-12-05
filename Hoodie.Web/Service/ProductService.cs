@@ -1,5 +1,4 @@
-﻿using Hoodie.Services.ProductAPI.Models.Dto;
-using Hoodie.Web.Models;
+﻿using Hoodie.Web.Models;
 using Hoodie.Web.Service.IService;
 using Hoodie.Web.Utility;
 
@@ -9,6 +8,10 @@ namespace Hoodie.Web.Service
     {
         private readonly IBaseService _baseService;
 
+        public ProductService(IBaseService baseService)
+        {
+            _baseService = baseService;
+        }
         public async Task<ResponseDto?> CreateProductAsync(ProductDto productDto)
         {
             return await _baseService.SendAsync(new RequestDto
