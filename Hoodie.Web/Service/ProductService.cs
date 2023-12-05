@@ -27,7 +27,7 @@ namespace Hoodie.Web.Service
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = StaticDetails.ApiTypeEnum.DELETE,
-                Url = StaticDetails.ProductAPIBase + "/api/product" + id,
+                Url = StaticDetails.ProductAPIBase + "/api/product/" + id,
             });
         }
 
@@ -45,7 +45,7 @@ namespace Hoodie.Web.Service
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = StaticDetails.ApiTypeEnum.GET,
-                Url = StaticDetails.ProductAPIBase + "/api/product" + id,
+                Url = StaticDetails.ProductAPIBase + "/api/product/" + id,
             });
         }
 

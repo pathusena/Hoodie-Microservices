@@ -82,7 +82,7 @@ namespace Hoodie.Services.ProductAPI.Controllers
         public ResponseDto Put([FromBody] ProductDto productDto) {
             try {
                 Product product = _mapper.Map<Product>(productDto);
-                _dbContext.Add(product);
+                _dbContext.Update(product);
                 _dbContext.SaveChanges();
 
                 _responseDto.Result = _mapper.Map<ProductDto>(product);
