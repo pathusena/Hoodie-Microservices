@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.truncated-text {
+    max-height: 144px; /* Adjust as needed */
+    overflow: hidden;
+}

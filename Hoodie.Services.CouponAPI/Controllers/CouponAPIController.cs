@@ -24,6 +24,7 @@ namespace Hoodie.Services.CouponAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Get()
         {
             try
@@ -40,6 +41,7 @@ namespace Hoodie.Services.CouponAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Get(int id)
         {
             try

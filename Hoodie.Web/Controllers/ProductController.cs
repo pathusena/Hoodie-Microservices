@@ -120,5 +120,20 @@ namespace Hoodie.Web.Controllers
 
             return View(productDto);
         }
+
+        public async Task<IActionResult> ProductDetails(int productId)
+        {
+            ProductDto productDto = new();
+            ResponseDto? response = await _productService.GetProductAsync(productId);
+            if (response != null && response.IsSuccess)
+            {
+                productDto = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View(productDto);
+        }
     }
 }

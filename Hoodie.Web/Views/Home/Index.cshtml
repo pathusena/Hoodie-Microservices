@@ -1,8 +1,32 @@
-﻿@{
+﻿@model IEnumerable<ProductDto>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form>
+    <div class="container row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-md-3">
+                <div class="p-0 my-3 border rounded">
+                    <div class="card">
+                        <img src="@item.ImageUrl" class="card-img-top">
+                        <div class="card-body">
+                            <h4 class="card-title text-dark-50 text-center py-2">@item.Name</h4>
+                            <div class="d-flex justify-content-between py-2">
+                                <span class="text-danger" style="font-size:20px;">@item.Price.ToString("c")</span>
+                                <span class="badge bg-danger text-white p-2">@item.CategoryName</span>
+                            </div>
+                            <p class="card-text truncated-text">@item.Description</p>
+                            <div class="row">
+                                <div class="col">
+                                    <a class="btn btn-success form-control" asp-route-productId="@item.ProductId" asp-controller="Product" asp-action="ProductDetails">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</form>
