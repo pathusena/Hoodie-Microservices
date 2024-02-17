@@ -9,7 +9,7 @@ trigger:
       - Hoodie.Services.AuthAPI
 
 pool:
-  vmImage: 'windows-latest'
+  name: 'pathum-lap'
 
 variables:
   solution: '**/*.sln'
