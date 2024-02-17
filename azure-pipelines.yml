@@ -4,9 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  paths:
-    include:
-      - Hoodie.Services.AuthAPI
+  - main
 
 pool:
   name: 'pathum-lap'
